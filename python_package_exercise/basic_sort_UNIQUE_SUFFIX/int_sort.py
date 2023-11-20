@@ -30,13 +30,56 @@ def bubble(int_list):
 
 def quick(int_list):
     """
-    qsort docstring
+    Performs a quick sort on a list of integers
+
+    Args:
+    int_list (list of int): The list to be sorted
+
+    Returns:
+    list of int: The sorted list of integers
     """
-    print("quick sort")
+
+    if len(int_list) <= 1:
+
+        return int_list
+    
+    else:
+
+        pivot = int_list[len(int_list) // 2]
+
+        lesser = [x for x in int_list if x < pivot]
+        middle = [x for x in int_list if x == pivot]
+        greater = [x for x in int_list if x > pivot]
+
+        return quick(lesser) + middle + quick(greater)
+        
+
+    
 
 
 def insertion(int_list):
     """
-    insertion docstring
+    Perform an insertion sort on a list of integers.
+
+    Args:
+    int_list (list of int): The list to be sorted.
+
+    Returns:
+    list of int: The sorted list.
     """
-    print("insertion sort")
+
+    for i in range(1, len(int_list)):
+
+        key = int_list[i]
+
+        j = i - 1
+
+        while j >= 0 and key < int_list[j]:
+
+            int_list[j + 1] = int_list[j]
+
+            j -= 1
+
+        int_list[j + 1] = key
+
+    return int_list
