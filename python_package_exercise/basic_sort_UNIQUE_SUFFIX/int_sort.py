@@ -40,11 +40,9 @@ def quick(int_list):
     """
 
     if len(int_list) <= 1:
-
         return int_list
-    
-    else:
 
+    else:
         pivot = int_list[len(int_list) // 2]
 
         lesser = [x for x in int_list if x < pivot]
@@ -52,9 +50,6 @@ def quick(int_list):
         greater = [x for x in int_list if x > pivot]
 
         return quick(lesser) + middle + quick(greater)
-        
-
-    
 
 
 def insertion(int_list):
@@ -69,13 +64,11 @@ def insertion(int_list):
     """
 
     for i in range(1, len(int_list)):
-
         key = int_list[i]
 
         j = i - 1
 
         while j >= 0 and key < int_list[j]:
-
             int_list[j + 1] = int_list[j]
 
             j -= 1
