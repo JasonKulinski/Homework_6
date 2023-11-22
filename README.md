@@ -36,7 +36,9 @@ As of right now there are not current known issues in the code base.
 ## Badges
 
 Version Control: ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-Testing Validation: ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
+
 Bubble Sort Testing: ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
+
 Quick Sort Testing: ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
+
 Insertion Sort Testing ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
