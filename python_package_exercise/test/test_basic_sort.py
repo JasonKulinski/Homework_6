@@ -15,13 +15,19 @@
 #  limitations under the License.
 #
 # =========================================================================
+
+import sys
+sys.path.append("C:\\Coding\\397\\Homework_6\\python_package_exercise")
+from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
+
 import pytest
 import numpy as np
 import sys
 sys.path.append("C:\\Users\\Jason's PC\\Desktop\\hw6\\Homework_6\\python_package_exercise")
 from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
 
-def is_sorted(int_list):
+
+def is_sorted(self, int_list):
     """
     Testing oracle that checks if the input integer list is sorted in ascending order.
     
@@ -33,9 +39,10 @@ def is_sorted(int_list):
     """
     return all(int_list[i] <= int_list[i + 1] for i in range(len(int_list) - 1))
 
+
 @pytest.fixture
 def int_lists():
-    """
+  """
     Pytest fixture that has two premade tests, and one randomly genorated test that is returned.
     
     Parameters:
@@ -47,7 +54,9 @@ def int_lists():
     return [[3,2,1],
 	        [1,1,1],
 			np.random.randint(low=-10, high=200, size=5)] 
-    
+
+
+
 def test_bubble(int_lists):
     """
     The test implementation for bubble sort
@@ -62,14 +71,29 @@ def test_bubble(int_lists):
         sorted_list = bubble(int_list.copy())
         assert (is_sorted(sorted_list) == True)
 
+def test_quick():
+    assert quick([]) == []
+    assert quick([1]) == [1]
+    assert quick([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert quick([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
+    assert quick([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]
+    assert quick([-3, -1, -4, -2]) == [-4, -3, -2, -1]
+    assert quick([-2, 3, 0, -1, 5]) == [-2, -1, 0, 3, 5]
+    assert quick([3.5, 2.2, 5.1, 4.3]) == [2.2, 3.5, 4.3, 5.1]
 
-def test_quick(int_lists):
-    assert True
 
-def test_insertion(int_lists):
-    assert True
+def test_insertion():
+    assert insertion([]) == []
+    assert insertion([1]) == [1]
+    assert insertion([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert insertion([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
+    assert insertion([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]
+    assert insertion([-3, -1, -4, -2]) == [-4, -3, -2, -1]
+    assert insertion([-2, 3, 0, -1, 5]) == [-2, -1, 0, 3, 5]
+    assert insertion([3.5, 2.2, 5.1, 4.3]) == [2.2, 3.5, 4.3, 5.1]
 
 
 
 if __name__ == "__main__":
     pytest.main(["-v", "python_package_exercise\\test\\test_basic_sort.py"])
+
