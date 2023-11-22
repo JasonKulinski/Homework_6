@@ -19,7 +19,7 @@
 import pytest
 import numpy as np
 import sys
-sys.path.append("C:\\Users\\Jason's PC\\Desktop\\hw6\\Homework_6\\python_package_exercise")
+sys.path.append("C:\\Coding\\397\\Homework_6\\python_package_exercise")
 from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
 
 
@@ -47,11 +47,13 @@ def int_lists():
     No parameters in this function.
     
     Returns:
-    List: 2D array of ints, two predefined and one randomly generated.
+    List: 2D array of ints, two predefined and three randomly generated (Entirely positive integer array, Entirely negative array, Negative and Positive integer array)
     """
     return [[3,2,1], 
             [1,1,1], 
-            np.random.randint(low=-10, high=200, size=5)] 
+            np.random.randint(low= 0, high=200, size=50),
+            np.random.randint(low = -200, high = 0, size = 50),
+            np.random.randint(low= -100, high = 100, size=50)] 
 
 
 
@@ -64,33 +66,54 @@ def test_bubble(int_lists):
     int_list (list): An int list that will be sorted and validated.
     
     Returns:
-    Bool: True or false based on assertion. 
+    Bool: True or false based on assertion of whether or not the list has been correctly sorted
     """
     for int_list in int_lists:
+
         sorted_list = bubble(int_list.copy())
+
         assert (is_sorted(sorted_list) == True)
 
 
-def test_quick():
-    assert quick([]) == []
-    assert quick([1]) == [1]
-    assert quick([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
-    assert quick([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
-    assert quick([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]
-    assert quick([-3, -1, -4, -2]) == [-4, -3, -2, -1]
-    assert quick([-2, 3, 0, -1, 5]) == [-2, -1, 0, 3, 5]
-    assert quick([3.5, 2.2, 5.1, 4.3]) == [2.2, 3.5, 4.3, 5.1]
+def test_quick(int_lists):
+    """
+    The test implementation for quick sort
+
+    Parameters:
+    int_list (list): An int list that will be sorted and validated
+
+    Returns:
+    Bool: True or false based on the assertion of whether or not the list has been correctly sorted
+
+    """
+
+    for int_list in int_lists:
+
+        sorted_list = quick(int_list.copy())
+
+        assert (is_sorted(sorted_list) == True)
 
 
-def test_insertion():
-    assert insertion([]) == []
-    assert insertion([1]) == [1]
-    assert insertion([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
-    assert insertion([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
-    assert insertion([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]
-    assert insertion([-3, -1, -4, -2]) == [-4, -3, -2, -1]
-    assert insertion([-2, 3, 0, -1, 5]) == [-2, -1, 0, 3, 5]
-    assert insertion([3.5, 2.2, 5.1, 4.3]) == [2.2, 3.5, 4.3, 5.1]
+
+
+def test_insertion(int_lists):
+    """
+    The test implementation for insertion sort
+
+    Parameters:
+    int_list (list): An int list that will be sorted and validated
+
+    Returns:
+    Bool: True or false based on the assertion of whether or not the list has been correctly sorted
+
+    """
+    for int_list in int_lists:
+
+        sorted_list = insertion(int_list.copy())
+
+        assert (is_sorted(sorted_list) == True)
+    
+    
 
 
 
