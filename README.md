@@ -13,6 +13,10 @@ This project was created as a simple python package that allows the creators to 
 
 All methods include three unit tests outlined in the test_basic_sort.py file
 
+## Our DevOps Workflow
+
+Here at Logic-Gate we appreciate developer opperations, and we handle continous integration with ease. So far our team has implemented yaml files for handling the three major OS and verbous testing that is tested and verified using pytest. Our commenting strucutre is inspired by Google's notation, and we use it for every function we define to ensure our code is well understood, and will be ready to use for the next person. We also have implemented a linting process for style checking to make sure our code compiles without error, and is as efficient as it can be!
+
 ## How to install this package
 
 The easiest way to run this program will be to clone down the latest version of the repo.
