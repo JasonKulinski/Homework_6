@@ -16,10 +16,6 @@
 #
 # =========================================================================
 
-import sys
-sys.path.append("C:\\Coding\\397\\Homework_6\\python_package_exercise")
-from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
-
 import pytest
 import numpy as np
 import sys
@@ -27,7 +23,9 @@ sys.path.append("C:\\Users\\Jason's PC\\Desktop\\hw6\\Homework_6\\python_package
 from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
 
 
-def is_sorted(self, int_list):
+
+
+def is_sorted(int_list):
     """
     Testing oracle that checks if the input integer list is sorted in ascending order.
     
@@ -42,7 +40,7 @@ def is_sorted(self, int_list):
 
 @pytest.fixture
 def int_lists():
-  """
+    """
     Pytest fixture that has two premade tests, and one randomly genorated test that is returned.
     
     Parameters:
@@ -51,9 +49,10 @@ def int_lists():
     Returns:
     List: 2D array of ints, two predefined and one randomly generated.
     """
-    return [[3,2,1],
-	        [1,1,1],
-			np.random.randint(low=-10, high=200, size=5)] 
+    return [[3,2,1], 
+            [1,1,1], 
+            np.random.randint(low=-10, high=200, size=5)] 
+
 
 
 
@@ -70,6 +69,7 @@ def test_bubble(int_lists):
     for int_list in int_lists:
         sorted_list = bubble(int_list.copy())
         assert (is_sorted(sorted_list) == True)
+
 
 def test_quick():
     assert quick([]) == []
