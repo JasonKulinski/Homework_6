@@ -19,6 +19,23 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[tool.black]
+    py36 = true
+    include = '\.pyi?$'
+    exclude = '''
+    /(
+        \.git
+      | \.hg
+      | \.mypy_cache
+      | \.tox
+      | \.venv
+      | _build
+      | buck-out
+      | build
+      | dist
+    )/
+
+
 [project.urls]
 "Bug Tracker" = "https://github.com/pypa/python_package_exercise/issues"
 
