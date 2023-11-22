@@ -17,33 +17,59 @@
 # =========================================================================
 
 import sys
-
 sys.path.append("C:\\Coding\\397\\Homework_6\\python_package_exercise")
-
 from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
 
 import pytest
 import numpy as np
-
-# from  "C:\Coding\397\Homework_6\python_package_exercise\basic_sort_UNIQUE_SUFFIX\int_sort.py"  import bubble, quick, insertion
+import sys
+sys.path.append("C:\\Users\\Jason's PC\\Desktop\\hw6\\Homework_6\\python_package_exercise")
+from basic_sort_UNIQUE_SUFFIX.int_sort import bubble, quick, insertion
 
 
 def is_sorted(self, int_list):
     """
-    Testing oracle.
+    Testing oracle that checks if the input integer list is sorted in ascending order.
+    
+    Parameters:
+    int_list (list): List of integers to be checked for sorted order.
+    
+    Returns:
+    bool: True if the list is sorted in ascending order, False otherwise.
     """
-    return True
+    return all(int_list[i] <= int_list[i + 1] for i in range(len(int_list) - 1))
 
 
 @pytest.fixture
 def int_lists():
-    # fixture which creates testing data for all tests
-    return [[3, 2, 1], [1, 1, 1], np.random.randint(low=-10, high=200, size=5)]
+  """
+    Pytest fixture that has two premade tests, and one randomly genorated test that is returned.
+    
+    Parameters:
+    No parameters in this function.
+    
+    Returns:
+    List: 2D array of ints, two predefined and one randomly generated.
+    """
+    return [[3,2,1],
+	        [1,1,1],
+			np.random.randint(low=-10, high=200, size=5)] 
+
 
 
 def test_bubble(int_lists):
-    assert True
-
+    """
+    The test implementation for bubble sort
+    
+    Parameters:
+    int_list (list): An int list that will be sorted and validated.
+    
+    Returns:
+    Bool: True or false based on assertion. 
+    """
+    for int_list in int_lists:
+        sorted_list = bubble(int_list.copy())
+        assert (is_sorted(sorted_list) == True)
 
 def test_quick():
     assert quick([]) == []
@@ -65,3 +91,9 @@ def test_insertion():
     assert insertion([-3, -1, -4, -2]) == [-4, -3, -2, -1]
     assert insertion([-2, 3, 0, -1, 5]) == [-2, -1, 0, 3, 5]
     assert insertion([3.5, 2.2, 5.1, 4.3]) == [2.2, 3.5, 4.3, 5.1]
+
+
+
+if __name__ == "__main__":
+    pytest.main(["-v", "python_package_exercise\\test\\test_basic_sort.py"])
+
