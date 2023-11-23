@@ -41,6 +41,8 @@ As of right now there are not current known issues in the code base.
 
 Version Control: ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
+ [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 Bubble Sort Testing: ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
 
 Quick Sort Testing: ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
